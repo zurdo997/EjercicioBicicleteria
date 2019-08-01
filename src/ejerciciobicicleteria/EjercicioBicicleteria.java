@@ -1,21 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ejerciciobicicleteria;
 
-/**
- *
- * @author Desarrollo Web
- */
+import java.util.Scanner;
+
 public class EjercicioBicicleteria {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Bicicleteria nuevaBicicleteria = new Bicicleteria();
+        Bicicleta nuevaBici;
+        Scanner teclado = new Scanner(System.in);
+        String nroDeSerie, modelo;
+        int año;
+        float precio;
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Ingrese numero de serie: ");
+            nroDeSerie = teclado.next();
+
+            System.out.print("Ingrese modelo: ");
+            modelo = teclado.next();
+
+            System.out.print("Ingrese año: ");
+            año = teclado.nextInt();
+
+            System.out.print("Ingrese su precio: ");
+            precio = teclado.nextFloat();
+
+            nuevaBici = new Bicicleta(nroDeSerie, modelo, año);
+            nuevaBici.setPrecio(precio);
+
+            nuevaBicicleteria.addBicicleta(nuevaBici);
+            
+        }
+        System.out.println("---------------------------------------------------------");
+        nuevaBicicleteria.mostrarTodo();
+        nuevaBicicleteria.ordenarPorAño();
+        System.out.println("---------------------------------------------------------");
+        nuevaBicicleteria.mostrarTodo();
     }
-    
+
 }
